@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS3280WPF", "CS3280WPF\CS3280WPF.csproj", "{68277E21-1256-4B18-BDC9-D7A55A2C9D0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68277E21-1256-4B18-BDC9-D7A55A2C9D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68277E21-1256-4B18-BDC9-D7A55A2C9D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68277E21-1256-4B18-BDC9-D7A55A2C9D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68277E21-1256-4B18-BDC9-D7A55A2C9D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF6F52C6-E8AA-48C1-9622-F4C4F6990924}
+	EndGlobalSection
+EndGlobal
