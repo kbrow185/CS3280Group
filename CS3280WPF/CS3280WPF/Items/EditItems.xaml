@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CS3280WPF.Items"
         mc:Ignorable="d"
-        Title="EditItems" Height="300" Width="300">
+        Title="EditItems" Height="500" Width="600">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF48B971" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid x:Name="itemDataGrid" HorizontalAlignment="Left" Height="288" Margin="10,10,0,0" VerticalAlignment="Top" Width="572"/>
+        <TextBox x:Name="itemCodeTextBox" HorizontalAlignment="Left" Height="24" Margin="10,378,0,0" TextWrapping="Wrap" Text="Item Code" VerticalAlignment="Top" Width="74"/>
+        <TextBox x:Name="itemDescTextBox" Margin="110,378,0,0" TextWrapping="Wrap" Text="Item Description" HorizontalAlignment="Left" Width="350" Height="24" VerticalAlignment="Top"/>
+        <TextBox x:Name="itemPriceTextBox" HorizontalAlignment="Left" Height="24" Margin="481,378,0,0" TextWrapping="Wrap" Text="0.00$" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="addItemButton" Content="Add Item" HorizontalAlignment="Left" Margin="61,435,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White" Click="addItemButton_Click">
+        <Button.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF16C546" Offset="1"/>
+            </LinearGradientBrush>
+        </Button.Background>
+        </Button>
+        <Button x:Name="editItemButton" Content="Edit Item" HorizontalAlignment="Left" Margin="334,435,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF16C546" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Window>

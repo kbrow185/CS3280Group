@@ -23,7 +23,16 @@ namespace CS3280WPF
         public MainWindow()
         {
             clsDataAccess dataAccess = new clsDataAccess();
-            InitializeComponent();
+            //InitializeComponent();
+            
+            Items.EditItems items = new Items.EditItems();
+            items.Show();
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+          
         }
     }
 }
