@@ -59,5 +59,10 @@ namespace CS3280WPF.Items
             }
             */
         }
+
+        private void itemDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
