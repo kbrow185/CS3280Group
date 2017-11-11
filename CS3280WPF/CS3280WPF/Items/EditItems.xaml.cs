@@ -27,6 +27,7 @@ namespace CS3280WPF.Items
         List<List<String>> dataElements;
         public EditItems()
         {
+
             columns = new string[] { "ItemCode", "Item Description", "Cost"};
             dataAccess = new clsDataAccess();
            
@@ -45,22 +46,37 @@ namespace CS3280WPF.Items
             dataElements = new List<List<String>>();
             itemSet = dataAccess.ExecuteSQLStatement("SELECT * FROM [" + tableName + "]", ref numOfElements);
             itemDataGrid.ItemsSource = new DataView(itemSet.Tables[0]);
-            
-            /*
-            for (int i = 0; i < columns.Length; i++)
-            {
-                dataElements.Add(new List<string>());
-                dataElements.ElementAt(0).Add(columns[i]);
-
-                for (int j = 0; j < numOfElements; j++)
-                {
-                    dataElements.ElementAt(j+1).Add(Convert.ToString(itemSet.Tables[0].Rows[j][i]));
-                }
-            }
-            */
         }
 
         private void itemDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            try
+            {
+                itemCodeTextBox.IsEnabled = false;
+                DataRowView dataRow = (DataRowView)itemDataGrid.SelectedItem;
+                int index = itemDataGrid.CurrentCell.Column.DisplayIndex;
+
+                itemCodeTextBox.Text = dataRow.Row.ItemArray[0].ToString();
+                itemDescTextBox.Text = dataRow.Row.ItemArray[1].ToString();
+                itemPriceTextBox.Text = (dataRow.Row.ItemArray[2].ToString() + "$");
+            }
+            catch(Exception)
+            {
+                itemCodeTextBox.Text = "";
+                itemDescTextBox.Text = "";
+                itemPriceTextBox.Text = "";
+                itemCodeTextBox.IsEnabled = true;
+            }
+
+        }
+
+        private void editItemButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void removeItemButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
