@@ -20,32 +20,39 @@ namespace CS3280WPF.Items
     /// </summary>
     public partial class EditItems : Window
     {
-        clsDataAccess dataAccess;
-        DataSet itemSet;
-        int numOfElements;
-        String[] columns;
-        List<List<String>> dataElements;
+        ItemLogic itemLogic;
         public EditItems()
         {
-
-            columns = new string[] { "ItemCode", "Item Description", "Cost"};
-            dataAccess = new clsDataAccess();
-           
+            itemLogic = new ItemLogic();
             InitializeComponent();
-            refreshData();
-            // itemDataGrid.ItemsSource = dataElements;
+            fillDataGrid();
         }
-
+        
+        private void clear()
+        {
+            itemCodeTextBox.Text = "";
+            itemDescTextBox.Text = "";
+            itemPriceTextBox.Text = "";
+            itemCodeTextBox.IsEnabled = true;
+        }
         private void addItemButton_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                itemLogic.addItem(itemCodeTextBox.Text, itemDescTextBox.Text, Double.Parse(itemPriceTextBox.Text));
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("The information entered is the incorrect format your cost.");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Incorrect format. Please check your values again.");
+            }
         }
-        private void refreshData()
+        private void fillDataGrid()
         {
-            string tableName = "ItemDesc";
-            dataElements = new List<List<String>>();
-            itemSet = dataAccess.ExecuteSQLStatement("SELECT * FROM [" + tableName + "]", ref numOfElements);
-            itemDataGrid.ItemsSource = new DataView(itemSet.Tables[0]);
+            itemDataGrid.ItemsSource = new DataView(itemLogic.getNewData().Tables[0]);
         }
 
         private void itemDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -56,25 +63,34 @@ namespace CS3280WPF.Items
                 itemCodeTextBox.IsEnabled = false;
                 DataRowView dataRow = (DataRowView)itemDataGrid.SelectedItem;
                 int index = itemDataGrid.CurrentCell.Column.DisplayIndex;
-
                 itemCodeTextBox.Text = dataRow.Row.ItemArray[0].ToString();
                 itemDescTextBox.Text = dataRow.Row.ItemArray[1].ToString();
                 itemPriceTextBox.Text = (dataRow.Row.ItemArray[2].ToString() + "$");
+
             }
             catch(Exception)
             {
-                itemCodeTextBox.Text = "";
-                itemDescTextBox.Text = "";
-                itemPriceTextBox.Text = "";
-                itemCodeTextBox.IsEnabled = true;
+                clear();
             }
 
         }
 
         private void editItemButton_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                itemLogic.setItem(itemCodeTextBox.Text, itemDescTextBox.Text, Double.Parse(itemPriceTextBox.Text));
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("The information entered is the incorrect format your cost.");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Incorrect format. Please check your values again.");
+            }
         }
+
 
         private void removeItemButton_Click(object sender, RoutedEventArgs e)
         {

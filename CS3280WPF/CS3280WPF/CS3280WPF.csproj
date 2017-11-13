@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Items\ItemLogic.cs" />
     <Compile Include="Search\SearchItems.xaml.cs">
       <DependentUpon>SearchItems.xaml</DependentUpon>
     </Compile>
@@ -109,9 +110,38 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AcmeInvoice.mdb">
+    <Content Include="AcmeDatabase.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Backgrounds\Background_Main.png" />
+    <Resource Include="Images\Backgrounds\ACMEInventorySeries_Anvil_FringeFocus_Large.png" />
+    <Resource Include="Images\ItemList\adding.jpg" />
+    <Resource Include="Images\ItemList\airdrop.jpg" />
+    <Resource Include="Images\ItemList\antinight.jpg" />
+    <Resource Include="Images\ItemList\anvils.jpg" />
+    <Resource Include="Images\ItemList\artificialRock.jpg" />
+    <Resource Include="Images\ItemList\aspirin.jpg" />
+    <Resource Include="Images\ItemList\atomRearranger.jpg" />
+    <Resource Include="Images\ItemList\axle.jpg" />
+    <Resource Include="Images\ItemList\balloon.jpg" />
+    <Resource Include="Images\ItemList\basket.jpg" />
+    <Resource Include="Images\ItemList\batman.jpg" />
+    <Resource Include="Images\ItemList\bedSprings.jpg" />
+    <Resource Include="Images\ItemList\billboard.jpg" />
+    <Resource Include="Images\ItemList\birdseed.jpg" />
+    <Resource Include="Images\ItemList\bomb.jpg" />
+    <Resource Include="Images\ItemList\boomerang.jpg" />
+    <Resource Include="Images\ItemList\breakfast.jpg" />
+    <Resource Include="Images\ItemList\car.jpg" />
+    <Resource Include="Images\ItemList\cleaners.jpg" />
+    <Resource Include="Images\ItemList\corks.jpg" />
+    <Resource Include="Images\ItemList\cubeSugar.jpg" />
+    <Resource Include="Images\ItemList\detonator.jpg" />
+    <Resource Include="Images\ItemList\earthquake.jpg" />
+    <Resource Include="Images\ItemList\electricEye.jpg" />
+    <Resource Include="Images\ItemList\elephantBullet.jpg" />
+    <Resource Include="Images\ItemList\eyeTest.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

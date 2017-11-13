@@ -8,36 +8,47 @@
         Title="EditItems" Height="500" Width="600">
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="#FF48B971" Offset="1"/>
-            </LinearGradientBrush>
+            <ImageBrush ImageSource="/CS3280WPF;component/Images/Backgrounds/Background_Main.png"/>
         </Grid.Background>
-        <DataGrid x:Name="itemDataGrid" HorizontalAlignment="Left" Height="288" Margin="40,40,0,0" VerticalAlignment="Top" Width="515" SelectionChanged="itemDataGrid_SelectionChanged" MinColumnWidth="25" CanUserSortColumns="False" CanUserReorderColumns="False" FontSize="20" FontFamily="SimSun" SelectionMode="Single"/>
-        <TextBox x:Name="itemCodeTextBox" HorizontalAlignment="Left" Height="24" Margin="10,378,0,0" TextWrapping="Wrap" Text="Item Code" VerticalAlignment="Top" Width="74" FontFamily="SimSun"/>
-        <TextBox x:Name="itemDescTextBox" Margin="110,378,0,0" TextWrapping="Wrap" Text="Item Description" HorizontalAlignment="Left" Width="350" Height="24" VerticalAlignment="Top" FontFamily="SimSun"/>
-        <TextBox x:Name="itemPriceTextBox" HorizontalAlignment="Left" Height="24" Margin="481,378,0,0" TextWrapping="Wrap" Text="0.00$" VerticalAlignment="Top" Width="74" FontFamily="SimSun"/>
-        <Button x:Name="addItemButton" Content="Add Item" HorizontalAlignment="Left" Margin="40,435,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White" Click="addItemButton_Click" FontFamily="SimSun">
+        <DataGrid x:Name="itemDataGrid" HorizontalAlignment="Left" Height="315" Margin="60,29,0,0" VerticalAlignment="Top" Width="460" SelectionChanged="itemDataGrid_SelectionChanged" MinColumnWidth="25" CanUserSortColumns="False" CanUserReorderColumns="False" FontFamily="Segoe UI Black" SelectionMode="Single" Background="White" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Item Code" Binding="{Binding ItemCode}" />
+                <DataGridTextColumn Width ="300" Header="Description" Binding="{Binding ItemDesc}" />
+                <DataGridTextColumn Width ="90" Header="Cost" Binding="{Binding Cost}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="itemCodeTextBox" HorizontalAlignment="Left" Height="24" Margin="25,374,0,0" TextWrapping="Wrap" Text="Item Code" VerticalAlignment="Top" Width="77" FontFamily="SimSun" MaxLength="2"/>
+        <TextBox x:Name="itemDescTextBox" Margin="108,374,0,0" TextWrapping="Wrap" Text="Item Description" HorizontalAlignment="Left" Width="229" Height="24" VerticalAlignment="Top" FontFamily="SimSun" MaxLength="25"/>
+        <TextBox x:Name="itemPriceTextBox" HorizontalAlignment="Left" Height="24" Margin="342,374,0,0" TextWrapping="Wrap" Text="0.00$" VerticalAlignment="Top" Width="74" FontFamily="SimSun" MaxLength="10"/>
+        <Button x:Name="addItemButton" Content="Add Item" HorizontalAlignment="Left" Margin="25,419,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White" Click="addItemButton_Click" FontFamily="SimSun">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF16C546" Offset="1"/>
+                    <GradientStop Color="#FFEA4E13" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="editItemButton" Content="Edit Item" HorizontalAlignment="Left" Margin="213,435,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White" FontFamily="SimSun" Click="editItemButton_Click">
+        <Button x:Name="editItemButton" Content="Edit Item" HorizontalAlignment="Left" Margin="319,419,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White" FontFamily="SimSun" Click="editItemButton_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF16C546" Offset="1"/>
+                    <GradientStop Color="#FFEA4E13" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="removeItemButton" Content="Remove Item" HorizontalAlignment="Left" Margin="429,435,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White" FontFamily="SimSun" Click="removeItemButton_Click">
+        <Button x:Name="removeItemButton" Content="Remove Item" HorizontalAlignment="Left" Margin="175,419,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White" FontFamily="SimSun" Click="removeItemButton_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF16C546" Offset="1"/>
+                    <GradientStop Color="#FFEA4E13" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="clearSelectionButton" Content="Clear Selection" HorizontalAlignment="Left" Margin="456,374,0,0" VerticalAlignment="Top" Width="126" Height="24" Foreground="White" Click="addItemButton_Click" FontFamily="SimSun">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFEA4E13" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>

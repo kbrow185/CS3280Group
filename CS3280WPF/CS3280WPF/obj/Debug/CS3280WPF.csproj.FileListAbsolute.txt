@@ -14,8 +14,8 @@ C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Deb
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\CS3280WPF.exe
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\CS3280WPF.pdb
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\CS3280WPF_Content.g.cs
-C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\bin\Debug\AcmeInvoice.mdb
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\Items\EditItems.g.cs
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\Search\SearchItems.g.cs
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\Items\EditItems.baml
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\Search\SearchItems.baml
+C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\bin\Debug\AcmeDatabase.mdb
