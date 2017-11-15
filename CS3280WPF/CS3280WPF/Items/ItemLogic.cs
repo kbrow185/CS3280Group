@@ -13,10 +13,10 @@ namespace CS3280WPF.Items
         DataSet itemSet;
         int numOfElements;
         string tableName;
-        // List<List<String>> dataElements;
 
         public ItemLogic()
         {
+            
             tableName = "ItemDesc";
             dataAccess = new clsDataAccess();
             getNewData();
@@ -37,6 +37,7 @@ namespace CS3280WPF.Items
             }
             dataAccess.ExecuteScalarSQL("UPDATE [" + tableName + "] SET ItemDesc = '" + itemDescription +
                 "', Cost =" + cost + " WHERE ItemCode ='" + itemCode + "'");
+            getNewData();
         }
 
         public int getSize()
@@ -46,12 +47,19 @@ namespace CS3280WPF.Items
 
         internal void addItem(string itemCode, string itemDescription, double cost)
         {
-            if ((itemDescription.Length == 0) || (cost <= 0) || !(itemCode.Length==0))
+            if ((itemDescription.Length == 0) || (cost <= 0) || (itemCode.Length==0))
             {
                 throw new Exception("Incorrect format. Please check your values again.");
             }
             dataAccess.ExecuteScalarSQL("INSERT INTO [" + tableName + "] (ItemCode, ItemDesc, Cost)" +
-            " VALUES '" + itemCode + "','" + itemDescription + "'," + cost + "");
+            " VALUES ('" + itemCode + "','" + itemDescription + "'," + cost + ")");
+
+            getNewData();
+        }
+        public void removeItem(string itemCode)
+        {
+
+            getNewData();
         }
     }
 }
