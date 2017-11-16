@@ -43,20 +43,40 @@ namespace CS3280WPF.Items
             removeItemButton.IsEnabled = false;
             addMode = true;
         }
+       
+        private void fillDataGrid()
+        {
+            itemDataGrid.ItemsSource = new DataView(itemLogic.getNewData().Tables[0]);
+        }
+        /// <summary>
+        /// If addmMode is enabled(No item is selected) 
+        /// Checks if itemcode already exists. If so, an exception and notification is shown.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addItemButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (itemCodeTextBox.IsEnabled)
+                if (addMode)
                 {
-                    itemLogic.addItem(itemCodeTextBox.Text, itemDescTextBox.Text, Double.Parse(itemPriceTextBox.Text));
-                    fillDataGrid();
+                    if (!itemLogic.checkIfItemExists(itemCodeTextBox.Text))
+                    {
+                        itemLogic.addItem(itemCodeTextBox.Text, itemDescTextBox.Text, Double.Parse(itemPriceTextBox.Text));
+                        fillDataGrid();
+                        clear();
+                    }
+                    else
+                    {
+                        throw new Exception("Item Code already exists! Choose another.");
+                    }
+                    
                 }
                 else
                 {
-                throw new Exception("Adding is currently not allowed. Hit clear to edit.");
+                    throw new Exception("Adding is currently not allowed. Hit clear to edit.");
+                }
             }
-        }
 
             catch (FormatException)
             {
@@ -67,11 +87,12 @@ namespace CS3280WPF.Items
                 MessageBox.Show(f.Message);
             }
         }
-        private void fillDataGrid()
-        {
-            itemDataGrid.ItemsSource = new DataView(itemLogic.getNewData().Tables[0]);
-        }
-
+        /// <summary>
+        /// Once an item is selected in the data grid, the fields are updated about the item selected.
+        /// If the item selected is empty, then an exception is thrown to clear values and reset addmode.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void itemDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -91,7 +112,12 @@ namespace CS3280WPF.Items
             }
 
         }
-
+        /// <summary>
+        /// First checks if window is in add mode. If so then an exception is thrown.
+        /// Otherwise the selected item is edited.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editItemButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -100,6 +126,7 @@ namespace CS3280WPF.Items
                 {
                     itemLogic.setItem(itemCodeTextBox.Text, itemDescTextBox.Text, Double.Parse(itemPriceTextBox.Text));
                     fillDataGrid();
+                    clear();
                 }
                 else
                 {
@@ -115,6 +142,10 @@ namespace CS3280WPF.Items
                 MessageBox.Show(f.Message);
             }
         }
+
+        /// <summary>
+        /// Fills text boxes with information about the item selected.
+        /// </summary>
         private void fillTextBoxes()
         {
             DataRowView dataRow = (DataRowView)itemDataGrid.SelectedItem;
@@ -123,6 +154,12 @@ namespace CS3280WPF.Items
             itemPriceTextBox.Text = (dataRow.Row.ItemArray[2].ToString());
         }
 
+        /// <summary>
+        /// Verifies if window is in add mode. If it is not then the removeItem method is called from ItemLogic.
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void removeItemButton_Click(object sender, RoutedEventArgs e)
         {
             fillTextBoxes();
@@ -130,8 +167,9 @@ namespace CS3280WPF.Items
             {
                 if (!addMode)
                 {
-
+                    itemLogic.removeItem(itemCodeTextBox.Text);
                     fillDataGrid();
+                    clear();
                 }
                 else
                 {
@@ -144,7 +182,11 @@ namespace CS3280WPF.Items
             }
 
         }
-
+        /// <summary>
+        /// Clears text fields.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clearButtonSelect(object sender, RoutedEventArgs e)
         {
             clear();

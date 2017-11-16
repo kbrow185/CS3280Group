@@ -110,9 +110,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AcmeDatabase.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Images\Backgrounds\Background_Main.png" />
     <Resource Include="Images\Backgrounds\ACMEInventorySeries_Anvil_FringeFocus_Large.png" />
     <Resource Include="Images\ItemList\adding.jpg" />
@@ -142,6 +139,10 @@
     <Resource Include="Images\ItemList\elephantBullet.jpg" />
     <Resource Include="Images\ItemList\eyeTest.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="AcmeDatabase.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
