@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CS3280WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Acme Corporation Invoice System" Height="600" Width="800" MinWidth="800" MinHeight="600" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/Images/Backgrounds/background_main.png" Stretch="UniformToFill"/>
+    </Window.Background>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <!--This will launch a window for editing the available items in the database.-->
+            <MenuItem x:Name="muiEditItemsTable" Header="Edit Items Table" Click="muiEditItemsTable_Click" />
+            <!--This will launch a window for searching for an invoice.-->
+            <MenuItem x:Name="muiSearchInvoices" Header="Search Invoices" Click="muiSearchInvoices_Click" />
+        </Menu>
+
+        <Grid>
+
+        </Grid>
+    </DockPanel>
 </Window>

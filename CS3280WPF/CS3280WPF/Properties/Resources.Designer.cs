@@ -61,32 +61,11 @@ namespace CS3280WPF.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to .
         /// </summary>
-        internal static System.Drawing.Bitmap Background_Edit {
+        internal static string String1 {
             get {
-                object obj = ResourceManager.GetObject("Background_Edit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Background_Main {
-            get {
-                object obj = ResourceManager.GetObject("Background_Main", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Background_Search {
-            get {
-                object obj = ResourceManager.GetObject("Background_Search", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }

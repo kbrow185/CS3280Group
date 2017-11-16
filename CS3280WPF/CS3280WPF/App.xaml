@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:CS3280WPF"
              StartupUri="Main/MainWindow.xaml">
     <Application.Resources>
-         
+
+        <!--This makes all windows in the project use the ShinyRedTheme.xaml-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ShinyRedTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>
