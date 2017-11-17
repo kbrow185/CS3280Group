@@ -13,14 +13,147 @@
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <!--This will launch a window for editing the available items in the database.-->
-            <MenuItem x:Name="muiEditItemsTable" Header="Edit Items" Click="muiEditItemsTable_Click" />
+            <MenuItem x:Name="muiNewInvoice" Header="New Invoice" Click="muiNewInvoice_Click"/>
             <!--This will launch a window for searching for an invoice.-->
             <MenuItem x:Name="muiSearchInvoices" Header="Search Invoices" Click="muiSearchInvoices_Click" />
+            <!--This will launch a window for editing the available items in the database.-->
+            <MenuItem x:Name="muiEditItems" Header="Edit Items" Click="muiEditItems_Click" />
+
         </Menu>
 
-        <Grid>
+        <Grid x:Name="grdMain">
+            <Grid.RowDefinitions>
+                <!--Invoice Number, Invoice Date display-->
+                <RowDefinition Height="*"/>
+                <!--Adding items to invoice.-->
+                <RowDefinition Height="*"/>
+                <!--Invoice items display.-->
+                <RowDefinition Height="5*"/>
+                <!--Invoice save, delete, and total display.-->
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
+
+
+            
+            <!--Invoice Number, Invoice Date display-->
+            <Grid x:Name="grdInvoiceNumberDateDisplay" >
+                <Grid.ColumnDefinitions>
+                    <!--Invoice Number.-->
+                    <ColumnDefinition Width="2*" />
+                    <!--Gap.-->
+                    <ColumnDefinition Width="3*" />
+                    <!--Invoice Date.-->
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                
+                <!--Invoice Number.-->
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock x:Name="tblInvoiceNumberCaption" Text="Invoice Number" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
+                    <TextBox x:Name="tbxInvoiceNumber" FontSize="18" Margin="10,0" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                </StackPanel>
+
+                <!--Invoice Date.-->
+                <StackPanel Grid.Column="2">
+                    <TextBlock x:Name="tblInvoiceDateCaption" Text="Invoice Date" HorizontalAlignment="Center" FontSize="24" FontWeight="SemiBold" Foreground="White"/>
+                    <!--Date entry.-->
+                    <Grid Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <!--Day.-->
+                            <ColumnDefinition Width="*" />
+                            <!--Month.-->
+                            <ColumnDefinition Width="*" />
+                            <!--Year.-->
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <!--Day.-->
+                        <TextBox x:Name="tbxInvoiceDateDay" Grid.Column="0" FontSize="18" Margin="0,0,5,0" MaxLines="1" MaxLength="2"/>
+                        <TextBlock x:Name="tblInvoiceDateDayCaption" Grid.Column="0" FontSize="12" Margin="0,0,8,0" Text="D" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4"/>
+
+                        <!--Month.-->
+                        <TextBox x:Name="tbxInvoiceDateMonth" Grid.Column="1" FontSize="18" Margin="0,0,5,0" MaxLines="1" MaxLength="2" />
+                        <TextBlock x:Name="tblInvoiceDateMonthCaption" Grid.Column="1" FontSize="12" Margin="0,0,8,0" Text="M" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4"/>
+
+                        <!--Year.-->
+                        <TextBox x:Name="tbxInvoiceDateYear" Grid.Column="2" FontSize="18" MaxLines="1" MaxLength="4"/>
+                        <TextBlock x:Name="tblInvoiceDateYearCaption" Grid.Column="2" FontSize="12" Margin="0,0,8,0" Text="Y" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4"/>
+                    </Grid>                    
+                </StackPanel>
+            </Grid>
+
+
+
+            
+            <!--Adding items to invoice.-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <!--Item Selection.-->
+                    <ColumnDefinition Width="2*" />
+                    <!--Quantity Entry.-->
+                    <ColumnDefinition Width="*" />
+                    <!--Cost Display.-->
+                    <ColumnDefinition Width="*" />
+                    <!--Add item button.-->
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--Item Selection.-->
+                <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="10,0" >
+                    <TextBlock  x:Name="tblAddItemSelectItemCaption" Text="Select Item" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
+                    <ComboBox x:Name="cbxAddItemSelectItem" />
+                </StackPanel>
+
+                <!--Quantity Entry.-->
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0,10,10,0">
+                    <TextBlock x:Name="tblAddItemQuantityCaption" Text="Quantity" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
+                    <TextBox x:Name="tbxAddItemQuantity" FontSize="18" Margin="10,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLines="1" MaxLength="10" />
+                </StackPanel>
+
+                <!--Cost Display.-->
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,10,10,0">
+                    <TextBlock x:Name="tblAddItemCostCaption" Text="Cost" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
+                    <TextBox x:Name="tbxAddItemCost" FontSize="18" Margin="10,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" />
+                </StackPanel>
+                
+                <!--Add item button.-->
+                <Button x:Name="btnAddItem" Grid.Column="3" Content="Add Item" Margin="0,10,10,0" FontSize="18" />
+            </Grid>
+            
+            
+            
+                        
+            <!--Invoice items display.-->
+            <DataGrid x:Name="dtgInvoiceItems" Grid.Row="2" Margin="10">
+                
+            </DataGrid>
+
+                      
+                        
+            
+            <!--Invoice save, delete, and total display.-->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <!--Save.-->
+                    <ColumnDefinition Width="*" />
+                    <!--Delete.-->
+                    <ColumnDefinition Width="*" />
+                    <!--Total Display.-->
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--Save.-->
+                <Button x:Name="btnSaveInvoice" Grid.Column="0" Content="SAVE INVOICE" Margin="10,0,10,10" FontSize="18" Click="btnSaveInvoice_Click" />
+
+                <!--Delete.-->
+                <Button x:Name="btnDeleteInvoice" Grid.Column="1" Content="DELETE INVOICE" Margin="10,0,10,10" FontSize="18" Click="btnSaveInvoice_Click" />
+                
+                <!--Total Display.-->
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="10,0,10,10">
+                    <TextBlock x:Name="tblInvoiceTotalCaption" Text="Invoice Total" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
+                    <TextBox x:Name="tbxInvoiceTotal" FontSize="18" Margin="10,0" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />                    
+                </StackPanel>
+            </Grid>
         </Grid>
     </DockPanel>
 </Window>

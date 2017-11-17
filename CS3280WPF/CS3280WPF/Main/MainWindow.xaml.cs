@@ -25,9 +25,22 @@ using System.Reflection;
  * Clicking "New Invoice" should prompt the user to save the currently selected invoice,
  * if applicable.
  * 
- * New Invoice and displaying an invoice can be done in the same display.
+ * grdMain should be disabled until New Invoice is clicked or Search Invoice returns a value.
+ * ---Create an enableUI() method that sets up the UI based on new or existing invoice.
+ * Save Invoice needs to call an UpdateInvoice() method instead a NewInvoice() method.
+ * 
+ * Clicking day, month, or year captions should set the keyboard focus to their respective textbox.
+ * 
+ * numbers only:
+ * Date
+ * Quantity
+ * 
  * 
  * Delete Invoice needs to prompt the user before deleting.
+ * 
+ * SearchInvoices should return the InvoiceNum of the selected invoice to MainWindow for display.
+ * 
+ * 
  */
 
 
@@ -78,18 +91,65 @@ namespace CS3280WPF
         }
 
 
-
+        
 
         #region Click Handlers
 
         /// <summary>
-        /// Called when the "Edit Items Table" menu button is clicked.
+        /// Called when the "Search Invoices" menu button is clicked.
+        /// 
+        /// Displays the SearchInvoices window.
+        /// </summary>
+        /// <param name="sender">Search Invoices Menu Button</param>
+        /// <param name="e"></param>
+        private void muiSearchInvoices_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //Hide MainWindow.
+                this.Hide();
+
+                //Display SearchInvoices window.
+                searchInvoices = new SearchInvoices();
+                searchInvoices.ShowDialog();
+
+                //After closing SearchInvoices, return to MainWindow.
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                //Top level method: handle the exception.
+                HandleError(MethodInfo.GetCurrentMethod().DeclaringType.Name,
+                            MethodInfo.GetCurrentMethod().Name, ex.Message);
+            }
+        }
+
+        
+
+
+        /// <summary>
+        /// Called when the "New Invoice" menu button is clicked.
+        /// 
+        /// Setup the MainWindow invoice display for New Invoice entry.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void muiNewInvoice_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+
+        /// <summary>
+        /// Called when the "Edit Items" menu button is clicked.
         /// 
         /// Displays the EditItems window.
         /// </summary>
         /// <param name="sender">Edit Items Table Menu Button</param>
         /// <param name="e"></param>
-        private void muiEditItemsTable_Click(object sender, RoutedEventArgs e)
+        private void muiEditItems_Click(object sender, RoutedEventArgs e)
         {
             /* Notes:
              * After closing, refresh the items in a currently selected invoice, if there is one.
@@ -119,36 +179,13 @@ namespace CS3280WPF
 
 
         /// <summary>
-        /// Called when the "Search Invoices" menu button is clicked.
-        /// 
-        /// Displays the SearchInvoices window.
+        /// Called when the "Save Invoice" button is clicked.
         /// </summary>
-        /// <param name="sender">Search Invoices Menu Button</param>
+        /// <param name="sender">"Save Invoice" button.</param>
         /// <param name="e"></param>
-        private void muiSearchInvoices_Click(object sender, RoutedEventArgs e)
+        private void btnSaveInvoice_Click(object sender, RoutedEventArgs e)
         {
-            /* Notes:
-             * SearchInvoices should return the Invoice_ID of the selected invoice to MainWindow for display.
-             */
 
-            try
-            {
-                //Hide MainWindow.
-                this.Hide();
-
-                //Display SearchInvoices window.
-                searchInvoices = new SearchInvoices();
-                searchInvoices.ShowDialog();
-
-                //After closing SearchInvoices, return to MainWindow.
-                this.Show();
-            }
-            catch (Exception ex)
-            {
-                //Top level method: handle the exception.
-                HandleError(MethodInfo.GetCurrentMethod().DeclaringType.Name,
-                            MethodInfo.GetCurrentMethod().Name, ex.Message);
-            }
         }
 
         #endregion
@@ -189,5 +226,7 @@ namespace CS3280WPF
         }
 
         #endregion
+
+
     }
 }
