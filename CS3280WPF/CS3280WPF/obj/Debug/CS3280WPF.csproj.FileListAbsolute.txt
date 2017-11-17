@@ -13,8 +13,6 @@ C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Deb
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\CS3280WPF.csproj.CoreCompileInputs.cache
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\CS3280WPF.exe
 C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\CS3280WPF.pdb
-C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\bin\Debug\AcmeDatabase.mdb
-C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\CS3280WPF_Content.g.cs
 H:\Google Drive\Documents\College\2017 - Fall - WSU\CS 3280 - C#\Group Project\CS3280WPF\CS3280WPF\bin\Debug\CS3280WPF.exe.config
 H:\Google Drive\Documents\College\2017 - Fall - WSU\CS 3280 - C#\Group Project\CS3280WPF\CS3280WPF\bin\Debug\CS3280WPF.exe
 H:\Google Drive\Documents\College\2017 - Fall - WSU\CS 3280 - C#\Group Project\CS3280WPF\CS3280WPF\bin\Debug\CS3280WPF.pdb
@@ -36,3 +34,9 @@ H:\Google Drive\Documents\College\2017 - Fall - WSU\CS 3280 - C#\Group Project\C
 H:\Google Drive\Documents\College\2017 - Fall - WSU\CS 3280 - C#\Group Project\CS3280WPF\CS3280WPF\obj\Debug\Search\SearchInvoices.g.cs
 H:\Google Drive\Documents\College\2017 - Fall - WSU\CS 3280 - C#\Group Project\CS3280WPF\CS3280WPF\obj\Debug\Search\SearchInvoices.baml
 H:\Google Drive\Documents\College\2017 - Fall - WSU\CS 3280 - C#\Group Project\CS3280WPF\CS3280WPF\obj\Debug\CS3280WPF.csprojResolveAssemblyReference.cache
+C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\ShinyRedTheme.baml
+C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\Items\EditItems.g.cs
+C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\Search\SearchInvoices.g.cs
+C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\App.baml
+C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\Items\EditItems.baml
+C:\Users\Kenyo\OneDrive\Documents\GitHub\CS3280Group\CS3280WPF\CS3280WPF\obj\Debug\Search\SearchInvoices.baml

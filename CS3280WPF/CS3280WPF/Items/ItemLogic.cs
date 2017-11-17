@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -17,14 +18,14 @@ namespace CS3280WPF.Items
         int numOfElements;
         string tableName;
         int invoiceInquiryLength;
-        List<string> itemCodes;
+        ObservableCollection<string> itemCodes;
 
         /// <summary>
         /// Constructtor, sets up table name and initializes clsDataAccess as well as initializes dataset.
         /// </summary>
         public ItemLogic()
         {
-            itemCodes = new List<string>();
+            itemCodes = new ObservableCollection<string>();
             invoiceInquiryLength = 0;
             tableName = "ItemDesc";
             dataAccess = new clsDataAccess();
