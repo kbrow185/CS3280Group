@@ -27,7 +27,7 @@ namespace CS3280WPF.Items
         {
             itemCodes = new ObservableCollection<string>();
             invoiceInquiryLength = 0;
-            tableName = "ItemDesc";
+            tableName = "Item";
             dataAccess = new clsDataAccess();
             getNewData();
             for (int i = 0; i < numOfElements; i++)

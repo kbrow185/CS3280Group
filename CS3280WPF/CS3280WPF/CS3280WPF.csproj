@@ -55,8 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="clsItem.cs" />
     <Compile Include="Items\ItemLogic.cs" />
-    <Compile Include="Main\clsMainWindow.cs" />
+    <Compile Include="Main\clsMainWindowLogic.cs" />
     <Compile Include="Properties\Resources1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

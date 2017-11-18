@@ -23,29 +23,24 @@ using System.Reflection;
 /* Kyler's TODO / notes:
  * Create invoice display.
  * 
- * REMOVE ITEM?!
  * 
- * Clicking "New Invoice" should prompt the user to save the currently selected invoice,
- * if applicable. Set invoice number display to "TBD".
+ * SAVE INVOICE needs to lock the invoice for viewing only.
+ * New Invoice returns to an editable mode.
+ * Search Invoices should return to a viewing only mode.
+ * NEED to add "Edit Invoice" button. * 
+ * 
+ * 
+ * Clicking New, Search, or Edit Items should prompt the user to save the currently selected invoice,
+ * if they are in edit mode.
+ * 
  * 
  * Save Invoice should return invoice number for display.
- * 
- * grdMain should be disabled until New Invoice is clicked or Search Invoice returns a value.
- * ---Create an enableUI() method that sets up the UI based on new or existing invoice.
- * Save Invoice needs to call an UpdateInvoice() method instead a NewInvoice() method.
- * 
- * Clicking day, month, or year captions should set the keyboard focus to their respective textbox.
- * 
- * numbers only:
- * Date
- * Quantity
  * 
  * 
  * Delete Invoice needs to prompt the user before deleting.
  * 
- * SearchInvoices should return the InvoiceNum of the selected invoice to MainWindow for display.
  * 
- * 
+ * Search Invoices should return the InvoiceNumber of the selected invoice to MainWindow for display.
  */
 
 
