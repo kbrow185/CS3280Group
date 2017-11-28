@@ -97,7 +97,7 @@ namespace CS3280WPF.Items
         public void removeItem(string itemCode)
         {
             
-            DataSet invoices = dataAccess.ExecuteSQLStatement("SELECT * FROM LineItems WHERE ItemCode ='" +itemCode +"'", ref invoiceInquiryLength);
+            DataSet invoices = dataAccess.ExecuteSQLStatement("SELECT * FROM InvoiceItem WHERE ItemCode = '" + itemCode + "'", ref invoiceInquiryLength);
             if(invoiceInquiryLength==0)
             {
                 dataAccess.ExecuteScalarSQL("DELETE FROM [" + tableName + "] WHERE itemCode = '" + itemCode+"'");

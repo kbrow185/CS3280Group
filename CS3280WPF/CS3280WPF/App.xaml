@@ -10,7 +10,12 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ShinyRedTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
 
+            <!--Set all buttons to use the "SimSun" FontFamily.-->
+            <Style TargetType="{x:Type Control}" x:Key="baseStyle">
+                <Setter Property="FontFamily" Value="SimSun"/>
+            </Style>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
