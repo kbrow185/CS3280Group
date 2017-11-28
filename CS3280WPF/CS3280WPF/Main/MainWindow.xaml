@@ -1,11 +1,11 @@
 ﻿<Window x:Class="CS3280WPF.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CS3280WPF"
-        mc:Ignorable="d"
-        Title="Acme Corporation Invoice System" Height="600" Width="800" MinWidth="800" MinHeight="600" WindowStartupLocation="CenterScreen">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:CS3280WPF"
+    mc:Ignorable="d"
+    Title="Acme Corporation Invoice System" Height="600" Width="800" MinWidth="800" MinHeight="600" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/CS3280WPF;component/Resources/Images/Backgrounds/background_MainWindow.png" Stretch="UniformToFill"/>
     </Window.Background>
@@ -22,7 +22,7 @@
         </Menu>
 
         <!--This is disabled until "New Invoice" is clicked, or an invoice is returned from "Search Invoices".-->
-        <Grid x:Name="grdMain" IsEnabled="False">
+        <Grid x:Name="grdMain">
             <Grid.RowDefinitions>
                 <!--Invoice Number, Invoice Date display-->
                 <RowDefinition Height="*"/>
@@ -36,7 +36,7 @@
 
 
 
-            
+
             <!--Invoice Number, Invoice Date display-->
             <Grid x:Name="grdInvoiceNumberDateDisplay" >
                 <Grid.ColumnDefinitions>
@@ -47,11 +47,11 @@
                     <!--Invoice Date.-->
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
-                
+
                 <!--Invoice Number.-->
                 <StackPanel Grid.Column="0" VerticalAlignment="Center">
                     <TextBlock x:Name="tblInvoiceNumberCaption" Text="Invoice Number" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
-                    <TextBox x:Name="tbxInvoiceNumber" FontSize="18" Margin="10,0" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                    <TextBox x:Name="tbxInvoiceNumber" FontSize="18" Margin="10,0" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Black" />
                 </StackPanel>
 
                 <!--Invoice Date.-->
@@ -59,6 +59,10 @@
                     <TextBlock x:Name="tblInvoiceDateCaption" Text="Invoice Date" HorizontalAlignment="Center" FontSize="24" FontWeight="SemiBold" Foreground="White"/>
                     <!--Date entry.-->
                     <Grid Margin="10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="9*"/>
+                            <RowDefinition Height="19*"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <!--Day.-->
                             <ColumnDefinition Width="*" />
@@ -67,25 +71,25 @@
                             <!--Year.-->
                             <ColumnDefinition Width="2*" />
                         </Grid.ColumnDefinitions>
-                        
+
                         <!--Day.-->
-                        <TextBox x:Name="tbxInvoiceDateDay" Grid.Column="0" FontSize="18" Margin="0,0,5,0" MaxLines="1" MaxLength="2" KeyDown="tbxInvoiceDateDay_KeyDown"/>
-                        <TextBlock x:Name="tblInvoiceDateDayCaption" Grid.Column="0" FontSize="12" Margin="0,0,8,0" Text="D" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4"/>
+                        <TextBox x:Name="tbxInvoiceDateDay" Grid.Column="0" FontSize="18" Margin="0,0,5,0" MaxLines="1" MaxLength="2" KeyDown="tbxInvoiceDateDay_KeyDown" IsEnabled="False" Grid.RowSpan="2" FontFamily="Segoe UI Black"/>
+                        <TextBlock x:Name="tblInvoiceDateDayCaption" Grid.Column="0" FontSize="12" Margin="0,6,7,6" Text="D" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4" Grid.RowSpan="2"/>
 
                         <!--Month.-->
-                        <TextBox x:Name="tbxInvoiceDateMonth" Grid.Column="1" FontSize="18" Margin="0,0,5,0" MaxLines="1" MaxLength="2" KeyDown="tbxInvoiceDateMonth_KeyDown" />
-                        <TextBlock x:Name="tblInvoiceDateMonthCaption" Grid.Column="1" FontSize="12" Margin="0,0,8,0" Text="M" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4"/>
+                        <TextBox x:Name="tbxInvoiceDateMonth" Grid.Column="1" FontSize="18" Margin="0,0,5,0" MaxLines="1" MaxLength="2" KeyDown="tbxInvoiceDateMonth_KeyDown" Grid.RowSpan="2" IsEnabled="False" FontFamily="Segoe UI Black" />
+                        <TextBlock x:Name="tblInvoiceDateMonthCaption" Grid.Column="1" FontSize="12" Margin="0,6,8,6" Text="M" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4" Grid.RowSpan="2"/>
 
                         <!--Year.-->
-                        <TextBox x:Name="tbxInvoiceDateYear" Grid.Column="2" FontSize="18" MaxLines="1" MaxLength="4" KeyDown="tbxInvoiceDateYear_KeyDown"/>
-                        <TextBlock x:Name="tblInvoiceDateYearCaption" Grid.Column="2" FontSize="12" Margin="0,0,8,0" Text="Y" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4"/>
-                    </Grid>                    
+                        <TextBox x:Name="tbxInvoiceDateYear" Grid.Column="2" FontSize="18" MaxLines="1" MaxLength="4" KeyDown="tbxInvoiceDateYear_KeyDown" Grid.RowSpan="2" IsEnabled="False" FontFamily="Segoe UI Black"/>
+                        <TextBlock x:Name="tblInvoiceDateYearCaption" Grid.Column="2" FontSize="12" Margin="0,6,8,6" Text="Y" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#FFD4D4D4" Grid.RowSpan="2"/>
+                    </Grid>
                 </StackPanel>
             </Grid>
 
 
 
-            
+
             <!--Adding items to invoice.-->
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -102,37 +106,44 @@
                 <!--Item Selection.-->
                 <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="10,0" >
                     <TextBlock  x:Name="tblAddItemSelectItemCaption" Text="Select Item" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
-                    <ComboBox x:Name="cbxAddItemSelectItem" FontSize="16" SelectionChanged="cbxAddItemSelectItem_SelectionChanged" />
+                    <ComboBox x:Name="cbxAddItemSelectItem" FontSize="16" SelectionChanged="cbxAddItemSelectItem_SelectionChanged" IsEnabled="False" FontFamily="Segoe UI Black" />
                 </StackPanel>
 
                 <!--Quantity Entry.-->
                 <StackPanel Grid.Column="1" Margin="0,0,10,0" VerticalAlignment="Center">
                     <TextBlock x:Name="tblAddItemQuantityCaption" Text="Quantity" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
                     <!--Disabled until an item is selected.-->
-                    <TextBox x:Name="tbxAddItemQuantity" FontSize="18" Margin="10,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLines="1" MaxLength="10" IsEnabled="False" KeyDown="tbxAddItemQuantity_KeyDown" LostFocus="tbxAddItemQuantity_LostFocus_1" />
+                    <TextBox x:Name="tbxAddItemQuantity" FontSize="18" Margin="10,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLines="1" MaxLength="9" IsEnabled="False" KeyDown="tbxAddItemQuantity_KeyDown" LostFocus="tbxAddItemQuantity_LostFocus_1" FontFamily="Segoe UI Black" />
                 </StackPanel>
 
                 <!--Cost Display.-->
                 <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,10,0">
                     <TextBlock x:Name="tblAddItemCostCaption" Text="Cost" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
-                    <TextBox x:Name="tbxAddItemCost" FontSize="18" Margin="10,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" />
+                    <TextBox x:Name="tbxAddItemCost" FontSize="18" Margin="10,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" FontFamily="Segoe UI Black" />
                 </StackPanel>
-                
+
                 <!--Add item button.-->
-                <Button x:Name="btnAddItem" Grid.Column="3" Content="Add Item" Margin="0,10,10,0" FontSize="18" FontWeight="SemiBold" Click="btnAddItem_Click" />
+                <!--Adds selected item to the invoice, or overwrites previous entry for that item in the invoice.-->
+                <Button x:Name="btnAddItem" Grid.Column="3" Content="Add Item" Margin="0,10,10,0" FontSize="18" FontWeight="SemiBold" Click="btnAddItem_Click" IsEnabled="False" />
             </Grid>
-            
-            
-            
-                        
+
+
+
+
             <!--Invoice items display.-->
-            <DataGrid x:Name="dtgInvoiceItems" Grid.Row="2" Margin="10">
-                
+            <DataGrid x:Name="dtgInvoiceItems" Grid.Row="2" Margin="10" SelectionMode="Single" CanUserSortColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionChanged="dtgInvoiceItems_SelectionChanged" FontSize="14" IsEnabled="False" CanUserAddRows="False" AutoGenerateColumns="False" FontFamily="Segoe UI Black">
+                <DataGrid.Columns>
+                    <!--Selecting a row will put the item in the "add item" section above.-->
+                    <DataGridTextColumn Width ="*" Header="Item Code" Binding="{Binding ItemCode}" IsReadOnly="True" />
+                    <DataGridTextColumn Width ="5*" Header="Description" Binding="{Binding ItemDesc}" IsReadOnly="True" />
+                    <DataGridTextColumn Width ="*" Header="Quantity" Binding="{Binding ItemQuantity}" IsReadOnly="True" />
+                    <DataGridTextColumn Width ="2*" Header="Cost" Binding="{Binding Cost}" IsReadOnly="True" />
+                </DataGrid.Columns>
             </DataGrid>
 
-                      
-                        
-            
+
+
+
             <!--Invoice save, delete, and total display.-->
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
@@ -144,28 +155,46 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <!--Save.-->
-                <Button x:Name="btnSaveInvoice" Grid.Column="0" Content="SAVE INVOICE" Margin="10,0,10,10" FontSize="18" Click="btnSaveInvoice_Click" FontWeight="SemiBold" />
+                <!--Edit Invoice / Save Invoice.-->
+                <Grid Grid.Column="0" Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <!--Edit Invoice.-->
+                        <RowDefinition Height="*" />
+                        <!--Save Invoice.-->
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!--Edit Invoice.-->
+                    <!--Disabled unless the invoice has been saved or is pulled from SearchInvoices.-->
+                    <Button x:Name="btnEditInvoice" Grid.Row="0" Content="Edit Invoice" Margin="0,0,0,10" FontSize="16" Click="btnEditInvoice_Click" FontWeight="SemiBold" IsEnabled="False" />
+
+                    <!--Save Invoice.-->
+                    <Button x:Name="btnSaveInvoice" Grid.Row="1" Content="Save Invoice" FontSize="16" Click="btnSaveInvoice_Click" FontWeight="SemiBold" Margin="0,0,0,10" IsEnabled="False" />
+                </Grid>
 
                 <!--Remove Selected Item / Delete Invoice.-->
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Margin="10,0,0,0">
                     <Grid.RowDefinitions>
+                        <!--Remove Selected Item.-->
                         <RowDefinition Height="*"/>
+                        <!--Delete Invoice.-->
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <!--Remove Selected Item.-->
-                    <Button x:Name="btnRemoveSelectedItem" Grid.Row="0" Content="Remove Selected Item" FontSize="16" Margin="0,0,0,10" Click="btnRemoveSelectedItem_Click" FontWeight="SemiBold" />
+                    <!--Disabled until an item in the invoice is selected.-->
+                    <Button x:Name="btnRemoveSelectedItem" Grid.Row="0" Content="Remove Selected Item" FontSize="16" Margin="0,0,0,10" Click="btnRemoveSelectedItem_Click" FontWeight="SemiBold" IsEnabled="False" />
 
                     <!--Delete Invoice.-->
-                    <Button x:Name="btnDeleteInvoice" Grid.Row="1" Content="DELETE INVOICE" FontSize="16" Margin="0,0,0,10" Click="btnDeleteInvoice_Click" FontWeight="SemiBold" />
+                    <!--Disabled until the invoice has been saved, or is retrieved from SearchInvoices.-->
+                    <Button x:Name="btnDeleteInvoice" Grid.Row="1" Content="Delete Invoice" FontSize="16" Margin="0,0,0,10" Click="btnDeleteInvoice_Click" FontWeight="SemiBold" IsEnabled="False" />
                 </Grid>
-                
-                
+
+
                 <!--Total Display.-->
                 <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="10,0,10,10">
                     <TextBlock x:Name="tblInvoiceTotalCaption" Text="Invoice Total" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
-                    <TextBox x:Name="tbxInvoiceTotal" FontSize="18" Margin="10,0" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />                    
+                    <TextBox x:Name="tbxInvoiceTotal" FontSize="18" Margin="10,0" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Black" />
                 </StackPanel>
             </Grid>
         </Grid>
